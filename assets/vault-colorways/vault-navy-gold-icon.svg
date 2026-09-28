@@ -1,0 +1,30 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' width='120' height='120'>
+      <rect width='120' height='120' fill='#FAFAFA' rx='28'/>
+      <rect width='118' height='118' x='1' y='1' fill='none' stroke='#E5E7EB' stroke-width='1.5' rx='27'/>
+      
+    <defs>
+      <linearGradient id='gradFrame_navy-gold' x1='0%' y1='0%' x2='100%' y2='100%'>
+        <stop offset='0%' stop-color='#0B132B'/>
+        <stop offset='100%' stop-color='#1C2541'/>
+      </linearGradient>
+      <linearGradient id='gradAccent_navy-gold' x1='0%' y1='0%' x2='100%' y2='100%'>
+        <stop offset='0%' stop-color='#D4AF37'/>
+        <stop offset='100%' stop-color='#0B132B'/>
+      </linearGradient>
+    </defs>
+    <g transform='translate(10, 10) scale(0.833)'>
+      <!-- Outer Hexagon Frame -->
+      <polygon points='60,6 106,33 106,87 60,114 14,87 14,33' fill='url(#gradFrame_navy-gold)'/>
+      <polygon points='60,6 106,33 106,87 60,114 60,60' fill='url(#gradAccent_navy-gold)' opacity='0.85'/>
+      <polygon points='60,114 106,87 60,60' fill='#D4AF37' opacity='0.35'/>
+      <polygon points='60,114 14,87 60,60' fill='#1C2541' opacity='0.6'/>
+
+      <!-- Inner Hexagon Bed -->
+      <polygon points='60,20 94,40 94,80 60,100 26,80 26,40' fill='#FFFFFF' stroke='#E5E7EB' stroke-width='1.5'/>
+
+      <!-- Architectural Embossed 3D S Monogram -->
+      <path d='M 42 42 L 72 42 L 72 50 L 52 50 L 52 58 L 78 58 L 78 78 L 42 78 L 42 70 L 68 70 L 68 64 L 42 64 Z' fill='#0B132B'/>
+      <path d='M 40 40 L 70 40 L 70 48 L 50 48 L 50 56 L 76 56 L 76 76 L 40 76 L 40 68 L 66 68 L 66 62 L 40 62 Z' fill='#E8E5DF' stroke='#E5E7EB' stroke-width='0.5'/>
+      <path d='M 42 42 L 70 42 L 70 48 L 52 48 L 52 56 L 76 56 L 76 62 L 68 64 L 68 70 L 42 70 Z' fill='#D4AF37' opacity='0.4'/>
+    </g>
+    </svg>

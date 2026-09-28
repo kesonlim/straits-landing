@@ -1,0 +1,20 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 90' width='460' height='90'>
+      <rect width='460' height='90' fill='#0B1120' rx='16'/>
+      <g transform='translate(16, 10) scale(0.58)'>
+        <rect width='120' height='120' fill='#0F172A' rx='28'/>
+        <rect width='118' height='118' x='1' y='1' fill='none' stroke='#334155' stroke-width='1' rx='27' opacity='0.5'/>
+        
+    <defs>
+      <linearGradient id='grad_dark_hr' x1='0%' y1='0%' x2='100%' y2='100%'>
+        <stop offset='0%' stop-color='#38BDF8'/>
+        <stop offset='100%' stop-color='#0284C7'/>
+      </linearGradient>
+    </defs>
+    <g fill='none' stroke-width='13' stroke-linecap='round' stroke-linejoin='round'>
+      <path d='M 36 46 L 60 25 L 84 46 L 52 75' stroke='url(#grad_dark_hr)'/>
+      <path d='M 84 74 L 60 95 L 36 74 L 68 45' stroke='#FFFFFF'/>
+    </g>
+      </g>
+      <text x='105' y='43' font-family="Inter, -apple-system, sans-serif" font-size='22' font-weight='700' fill='#F8FAFC' letter-spacing='0.5'>STRAITS HR</text>
+      <text x='105' y='65' font-family="Inter, -apple-system, sans-serif" font-size='12' font-weight='600' fill='#0EA5E9' letter-spacing='1.5'>PAYROLL &amp; PEOPLE</text>
+    </svg>

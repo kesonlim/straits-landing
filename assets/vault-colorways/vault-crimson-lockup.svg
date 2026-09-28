@@ -1,0 +1,33 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 90' width='460' height='90'>
+      <rect width='460' height='90' fill='#FFFFFF' rx='16' stroke='#E5E7EB' stroke-width='1'/>
+      <g transform='translate(16, 6) scale(0.78)'>
+        
+    <defs>
+      <linearGradient id='gradFrame_crimson' x1='0%' y1='0%' x2='100%' y2='100%'>
+        <stop offset='0%' stop-color='#E11D48'/>
+        <stop offset='100%' stop-color='#BE123C'/>
+      </linearGradient>
+      <linearGradient id='gradAccent_crimson' x1='0%' y1='0%' x2='100%' y2='100%'>
+        <stop offset='0%' stop-color='#F43F5E'/>
+        <stop offset='100%' stop-color='#E11D48'/>
+      </linearGradient>
+    </defs>
+    <g transform='translate(10, 10) scale(0.833)'>
+      <!-- Outer Hexagon Frame -->
+      <polygon points='60,6 106,33 106,87 60,114 14,87 14,33' fill='url(#gradFrame_crimson)'/>
+      <polygon points='60,6 106,33 106,87 60,114 60,60' fill='url(#gradAccent_crimson)' opacity='0.85'/>
+      <polygon points='60,114 106,87 60,60' fill='#F43F5E' opacity='0.35'/>
+      <polygon points='60,114 14,87 60,60' fill='#BE123C' opacity='0.6'/>
+
+      <!-- Inner Hexagon Bed -->
+      <polygon points='60,20 94,40 94,80 60,100 26,80 26,40' fill='#FFFFFF' stroke='#E5E7EB' stroke-width='1.5'/>
+
+      <!-- Architectural Embossed 3D S Monogram -->
+      <path d='M 42 42 L 72 42 L 72 50 L 52 50 L 52 58 L 78 58 L 78 78 L 42 78 L 42 70 L 68 70 L 68 64 L 42 64 Z' fill='#E11D48'/>
+      <path d='M 40 40 L 70 40 L 70 48 L 50 48 L 50 56 L 76 56 L 76 76 L 40 76 L 40 68 L 66 68 L 66 62 L 40 62 Z' fill='#FFFFFF' stroke='#E5E7EB' stroke-width='0.5'/>
+      <path d='M 42 42 L 70 42 L 70 48 L 52 48 L 52 56 L 76 56 L 76 62 L 68 64 L 68 70 L 42 70 Z' fill='#F43F5E' opacity='0.4'/>
+    </g>
+      </g>
+      <text x='112' y='43' font-family="Inter, -apple-system, sans-serif" font-size='22' font-weight='800' fill='#0F172A' letter-spacing='-0.3'>STRAITS</text>
+      <text x='112' y='65' font-family="Inter, -apple-system, sans-serif" font-size='12' font-weight='700' fill='#E11D48' letter-spacing='1.5'>BUSINESS SUITE</text>
+    </svg>

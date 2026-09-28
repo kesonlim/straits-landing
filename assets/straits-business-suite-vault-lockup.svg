@@ -1,0 +1,41 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 100' width='480' height='100'>
+      <rect width='480' height='100' fill='#FFFFFF' rx='16' stroke='#E5E7EB' stroke-width='1'/>
+      <g transform='translate(18, 10) scale(0.8)'>
+        
+    <defs>
+      <linearGradient id='frameLeft_lockup_straits-business-suite' x1='0%' y1='0%' x2='100%' y2='100%'>
+        <stop offset='0%' stop-color='#0A3B32'/>
+        <stop offset='100%' stop-color='#062620'/>
+      </linearGradient>
+      <linearGradient id='frameRight_lockup_straits-business-suite' x1='0%' y1='0%' x2='100%' y2='100%'>
+        <stop offset='0%' stop-color='#10B981'/>
+        <stop offset='100%' stop-color='#0A3B32'/>
+      </linearGradient>
+      <linearGradient id='sFacet_lockup_straits-business-suite' x1='0%' y1='0%' x2='100%' y2='100%'>
+        <stop offset='0%' stop-color='#FFFFFF'/>
+        <stop offset='100%' stop-color='#E8E5DF'/>
+      </linearGradient>
+    </defs>
+    <g transform='translate(10, 10) scale(0.833)'>
+      <!-- Outer Hexagon Frame -->
+      <polygon points='60,6 106,33 106,87 60,114 14,87 14,33' fill='url(#frameLeft_lockup_straits-business-suite)'/>
+      <polygon points='60,6 106,33 106,87 60,114 60,60' fill='url(#frameRight_lockup_straits-business-suite)' opacity='0.85'/>
+      <polygon points='60,114 106,87 60,60' fill='#E8E5DF' opacity='0.4'/>
+      <polygon points='60,114 14,87 60,60' fill='#062620' opacity='0.6'/>
+
+      <!-- Inner Hexagon Bed -->
+      <polygon points='60,20 94,40 94,80 60,100 26,80 26,40' fill='#FFFFFF' stroke='#E8E5DF' stroke-width='1.5'/>
+
+      <!-- Architectural Embossed 3D S Monogram -->
+      <!-- S Base Shadow -->
+      <path d='M 42 42 L 72 42 L 72 50 L 52 50 L 52 58 L 78 58 L 78 78 L 42 78 L 42 70 L 68 70 L 68 64 L 42 64 Z' fill='#0A3B32'/>
+      <!-- S Bevel / Top Facet -->
+      <path d='M 40 40 L 70 40 L 70 48 L 50 48 L 50 56 L 76 56 L 76 76 L 40 76 L 40 68 L 66 68 L 66 62 L 40 62 Z' fill='url(#sFacet_lockup_straits-business-suite)'/>
+      <path d='M 42 42 L 70 42 L 70 48 L 52 48 L 52 56 L 76 56 L 76 62 L 68 64 L 68 70 L 42 70 Z' fill='#10B981' opacity='0.35'/>
+    </g>
+      </g>
+      <text x='118' y='46' font-family="Inter, -apple-system, sans-serif" font-size='22' font-weight='800' fill='#0A3B32' letter-spacing='-0.3'>STRAITS</text>
+      <text x='118' y='70' font-family="Inter, -apple-system, sans-serif" font-size='12' font-weight='700' fill='#10B981' letter-spacing='1.5'>BUSINESS SUITE</text>
+      <rect x='340' y='32' width='120' height='26' rx='6' fill='#ECFDF5' stroke='#A7F3D0' stroke-width='1'/>
+      <text x='400' y='49' font-family="Inter, -apple-system, sans-serif" font-size='10' font-weight='700' fill='#0A3B32' text-anchor='middle'>Parent Holding &amp; SSO</text>
+    </svg>

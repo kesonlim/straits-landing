@@ -1,0 +1,13 @@
+{
+  "name": "straits-landing",
+  "compatibility_date": "2026-08-08",
+  "assets": {
+    "directory": "."
+  },
+  "routes": [
+    {
+      "pattern": "straits.thethinkthank.com",
+      "custom_domain": true
+    }
+  ]
+}

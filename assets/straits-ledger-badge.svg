@@ -1,0 +1,14 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' width='120' height='120'>
+      <rect width='120' height='120' fill='#0A3B32' rx='28'/>
+      
+    <defs>
+      <linearGradient id='grad_solid_straits-ledger' x1='0%' y1='0%' x2='100%' y2='100%'>
+        <stop offset='0%' stop-color='#34D399'/>
+        <stop offset='100%' stop-color='#10B981'/>
+      </linearGradient>
+    </defs>
+    <g fill='none' stroke-width='13' stroke-linecap='round' stroke-linejoin='round'>
+      <path d='M 36 46 L 60 25 L 84 46 L 52 75' stroke='url(#grad_solid_straits-ledger)'/>
+      <path d='M 84 74 L 60 95 L 36 74 L 68 45' stroke='#FFFFFF'/>
+    </g>
+    </svg>

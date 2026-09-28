@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Straits — The Operating System for Singapore Business</title>
+  <meta name="description" content="Singapore's unified cloud accounting, IRAS 9% GST, and MOM-compliant payroll platform for SMEs. Built for zero-friction statutory compliance.">
+  <link rel="icon" type="image/svg+xml" href="./assets/straits-icon.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-canvas: #FAFAFA;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F4F1EA;
+      --border-line: #E5E7EB;
+      --border-stone: #E8E5DF;
+      --text-ink: #0F172A;
+      --text-muted: #4B5563;
+      --text-light: #9CA3AF;
+      
+      --brand-forest: #0A3B32;
+      --brand-emerald: #10B981;
+      --brand-mint: #ECFDF5;
+      --brand-stone: #E8E5DF;
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display: 'Plus Jakarta Sans', var(--font-sans);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-ink);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    .tabular-num {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum";
+    }
+
+    /* TOP ANNOUNCEMENT BANNER */
+    .top-banner {
+      background: var(--brand-forest);
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .top-banner span.tag {
+      background: rgba(16, 185, 129, 0.25);
+      color: #A7F3D0;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+    }
+
+    /* HEADER */
+    header {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .header-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-ink);
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      color: var(--brand-forest);
+      line-height: 1;
+    }
+
+    nav.main-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    nav.main-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav.main-nav a:hover {
+      color: var(--brand-forest);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-secondary {
+      background: #FFFFFF;
+      border: 1px solid var(--border-line);
+      color: var(--text-ink);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-subtle);
+      border-color: var(--border-stone);
+    }
+
+    .btn-primary {
+      background: var(--brand-forest);
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary:hover {
+      background: #072A24;
+      transform: translateY(-1px);
+    }
+
+    /* HERO */
+    .hero-section {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 72px 24px 48px;
+      text-align: center;
+    }
+
+    .pill-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brand-mint);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--brand-forest);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 54px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      color: var(--brand-forest);
+      max-width: 900px;
+      margin: 0 auto 20px;
+    }
+
+    .hero-title span.highlight {
+      color: var(--brand-emerald);
+      position: relative;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 36px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .hero-cta-group .btn-primary {
+      padding: 14px 28px;
+      font-size: 16px;
+      border-radius: 10px;
+    }
+
+    .hero-cta-group .btn-secondary {
+      padding: 14px 28px;
+      font-size: 16px;
+      border-radius: 10px;
+    }
+
+    .trust-metrics {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 500;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .check-icon {
+      color: var(--brand-emerald);
+      font-weight: 800;
+    }
+
+    /* HERO PREVIEW CARD */
+    .hero-preview-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid var(--border-line);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 20px 40px -15px rgba(10, 59, 50, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .preview-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-line);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+
+    .suite-switcher-pill {
+      display: flex;
+      background: #F3F4F6;
+      border-radius: 8px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .switcher-tab {
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .switcher-tab.active {
+      background: #FFFFFF;
+      color: var(--brand-forest);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      text-align: left;
+    }
+
+    @media (max-width: 860px) {
+      .preview-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 38px; }
+      nav.main-nav { display: none; }
+    }
+
+    .preview-box {
+      border: 1px solid var(--border-line);
+      border-radius: 12px;
+      padding: 20px;
+      background: #FFFFFF;
+    }
+
+    .preview-box-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    /* SECTION STYLING */
+    section.content-section {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 56px;
+    }
+
+    .section-eyebrow {
+      color: var(--brand-emerald);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--brand-forest);
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+
+    .section-subheading {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* PRODUCT CARDS */
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    @media (max-width: 860px) {
+      .products-grid { grid-template-columns: 1fr; }
+    }
+
+    .product-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-line);
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px -4px rgba(10, 59, 50, 0.08);
+    }
+
+    .product-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-mint);
+      color: var(--brand-forest);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .product-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--brand-forest);
+      margin-bottom: 12px;
+    }
+
+    .product-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-ink);
+      margin-bottom: 12px;
+    }
+
+    /* 1-CLICK SYNC BANNER */
+    .sync-card {
+      background: linear-gradient(135deg, #0A3B32 0%, #072A24 100%);
+      color: #FFFFFF;
+      border-radius: 20px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 860px) {
+      .sync-card { grid-template-columns: 1fr; padding: 32px 24px; }
+    }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+
+    .price-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-line);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .price-card.featured {
+      border: 2px solid var(--brand-forest);
+      position: relative;
+      box-shadow: 0 12px 28px -4px rgba(10, 59, 50, 0.1);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--brand-forest);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--brand-forest);
+      margin: 16px 0 6px;
+    }
+
+    .price-period {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-line);
+      padding: 64px 24px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .footer-col {
+      min-width: 160px;
+    }
+
+    .footer-col h5 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand-forest);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--brand-forest);
+    }
+
+    .footer-bottom {
+      max-width: 1240px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border-line);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    <span class="tag">STRAITS</span>
+    <span>The unified operating platform for Singapore business — IRAS 9% GST, CPF Board 2026 Caps, and PayNow SG.</span>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="brand-lockup">
+        <svg width="34" height="34" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="60,6 106,33 106,87 60,114 14,87 14,33" fill="#0A3B32"/>
+          <polygon points="60,6 106,33 106,87 60,114 60,60" fill="#10B981" fill-opacity="0.85"/>
+          <polygon points="60,114 106,87 60,60" fill="#E8E5DF" fill-opacity="0.4"/>
+          <polygon points="60,114 14,87 60,60" fill="#062620" fill-opacity="0.6"/>
+          <polygon points="60,20 94,40 94,80 60,100 26,80 26,40" fill="#FFFFFF" stroke="#E8E5DF" stroke-width="1.5"/>
+          <path d="M 42 42 L 72 42 L 72 50 L 52 50 L 52 58 L 78 58 L 78 78 L 42 78 L 42 70 L 68 70 L 68 64 L 42 64 Z" fill="#0A3B32"/>
+          <path d="M 40 40 L 70 40 L 70 48 L 50 48 L 50 56 L 76 56 L 76 76 L 40 76 L 40 68 L 66 68 L 66 62 L 40 62 Z" fill="#E8E5DF"/>
+        </svg>
+        <div class="brand-title">STRAITS</div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#products">Products</a>
+        <a href="#sync">1-Click Sync</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://ledger.thethinkthank.com" target="_blank" class="btn-secondary">Sign In</a>
+        <a href="#pricing" class="btn-primary">Start Free Trial</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero-section">
+      <div class="pill-chip">
+        <span style="color: var(--brand-emerald);">●</span> The Unified Operating System for Singapore Business
+      </div>
+      <h1 class="hero-title">
+        Accounting, 9% GST, and Payroll.<br>
+        <span class="highlight">All in one sovereign suite.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Eliminate messy spreadsheets, disparate logins, and statutory compliance anxiety. 
+        Straits connects your accounting ledger and workforce payroll in one clean, zero-friction portal.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#pricing" class="btn-primary">Start 14-Day Free Trial →</a>
+        <a href="#products" class="btn-secondary">Explore Products</a>
+      </div>
+
+      <div class="trust-metrics">
+        <div class="trust-item"><span class="check-icon">✓</span> IRAS 9% GST Form 5 Ready</div>
+        <div class="trust-item"><span class="check-icon">✓</span> CPF Board Verified Engine</div>
+        <div class="trust-item"><span class="check-icon">✓</span> PayNow SG QR Invoicing</div>
+        <div class="trust-item"><span class="check-icon">✓</span> Isolated Cloudflare D1 Vaults</div>
+      </div>
+
+      <!-- HERO PREVIEW INTERACTIVE CARD -->
+      <div class="hero-preview-container">
+        <div class="preview-header-bar">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #EF4444; display: inline-block;"></span>
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #F59E0B; display: inline-block;"></span>
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+            <span style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin-left: 8px;">suite.thethinkthank.com/dashboard</span>
+          </div>
+          <div class="suite-switcher-pill">
+            <button class="switcher-tab active">Overview</button>
+            <button class="switcher-tab">StraitsLedger</button>
+            <button class="switcher-tab">StraitsHR</button>
+          </div>
+        </div>
+
+        <div class="preview-grid">
+          <!-- Left: StraitsLedger Card -->
+          <div class="preview-box">
+            <div class="preview-box-header">
+              <div>
+                <strong style="font-size: 15px; color: var(--brand-forest);">StraitsLedger</strong>
+                <p style="font-size: 12px; color: var(--text-muted);">Cloud Accounting &amp; Tax</p>
+              </div>
+              <span style="background: #ECFDF5; color: #059669; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px;">IRAS VERIFIED</span>
+            </div>
+            <div style="border-top: 1px solid #F3F4F6; padding-top: 12px; margin-bottom: 12px;">
+              <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px;">
+                <span style="color: var(--text-muted);">Q3 2026 GST Form 5 Net Tax:</span>
+                <strong class="tabular-num" style="color: var(--brand-forest);">S$ 3,420.00</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                <span style="color: var(--text-muted);">Unreconciled Bank Feeds:</span>
+                <span style="color: #059669; font-weight: 600;">0 (100% Matched)</span>
+              </div>
+            </div>
+            <a href="https://ledger.thethinkthank.com" target="_blank" style="font-size: 12px; color: var(--brand-forest); font-weight: 600; text-decoration: none;">Launch Ledger Portal →</a>
+          </div>
+
+          <!-- Right: StraitsHR Card -->
+          <div class="preview-box">
+            <div class="preview-box-header">
+              <div>
+                <strong style="font-size: 15px; color: var(--brand-forest);">StraitsHR</strong>
+                <p style="font-size: 12px; color: var(--text-muted);">Cloud Payroll &amp; People</p>
+              </div>
+              <span style="background: #ECFDF5; color: #059669; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px;">MOM COMPLIANT</span>
+            </div>
+            <div style="border-top: 1px solid #F3F4F6; padding-top: 12px; margin-bottom: 12px;">
+              <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px;">
+                <span style="color: var(--text-muted);">September 2026 Pay Run:</span>
+                <strong class="tabular-num" style="color: var(--brand-forest);">S$ 59,350.00 Net</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                <span style="color: var(--text-muted);">Statutory CPF &amp; SHG Status:</span>
+                <span style="color: #059669; font-weight: 600;">Computed &amp; Finalized</span>
+              </div>
+            </div>
+            <a href="https://hr.thethinkthank.com" target="_blank" style="font-size: 12px; color: var(--brand-forest); font-weight: 600; text-decoration: none;">Launch HR Portal →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="content-section" id="products">
+      <div class="section-header">
+        <div class="section-eyebrow">The Operating Suite</div>
+        <h2 class="section-heading">Two World-Class Engines. One Login.</h2>
+        <p class="section-subheading">
+          Engineered to replace standalone legacy systems with an integrated, Singapore-first platform.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <!-- PRODUCT 1: STRAITSLEDGER -->
+        <div class="product-card">
+          <div>
+            <span class="product-badge">🇸G TAX &amp; ACCOUNTING</span>
+            <h3 class="product-title">StraitsLedger</h3>
+            <p class="product-desc">
+              Full double-entry bookkeeping, automated IRAS 9% GST Form 5 reporting, bank reconciliation, and seamless PayNow SG QR invoices.
+            </p>
+            <ul class="feature-list">
+              <li><span class="check-icon">✓</span> <strong>Instant PayNow SG QR</strong>: Embed dynamic QR codes directly on invoices for instant SGD settlements.</li>
+              <li><span class="check-icon">✓</span> <strong>Automated 9% GST Form 5</strong>: Box-by-box breakdown ready for IRAS portal submission.</li>
+              <li><span class="check-icon">✓</span> <strong>Bank Statement Reconciliation</strong>: Two-pane Xero-style reconciliation interface.</li>
+              <li><span class="check-icon">✓</span> <strong>Multi-Entity Ready</strong>: Manage multiple client UENs under one corporate secretarial login.</li>
+            </ul>
+          </div>
+          <div>
+            <a href="https://ledger.thethinkthank.com" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">Open StraitsLedger →</a>
+          </div>
+        </div>
+
+        <!-- PRODUCT 2: STRAITSHR -->
+        <div class="product-card">
+          <div>
+            <span class="product-badge">🇸G PAYROLL &amp; WORKFORCE</span>
+            <h3 class="product-title">StraitsHR</h3>
+            <p class="product-desc">
+              Production-verified Singapore payroll engine computing CPF, SDL, SHG (CDAC, SINDA, MBMF, ECF), overtime, and itemized MOM payslips.
+            </p>
+            <ul class="feature-list">
+              <li><span class="check-icon">✓</span> <strong>Verified CPF Calculation</strong>: Mathematical adherence to CPF Board's 2026 contribution rate tables.</li>
+              <li><span class="check-icon">✓</span> <strong>1-Click Itemized Payslips</strong>: MOM-compliant PDF generation for every employee in seconds.</li>
+              <li><span class="check-icon">✓</span> <strong>Bank GIRO &amp; CPF EZPay Export</strong>: Download bank payment files directly without retyping.</li>
+              <li><span class="check-icon">✓</span> <strong>Isolated Tenant Vaults</strong>: Every SME gets their own isolated Cloudflare D1 database.</li>
+            </ul>
+          </div>
+          <div>
+            <a href="https://hr.thethinkthank.com" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">Open StraitsHR →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1-CLICK SYNC BANNER -->
+      <div class="sync-card" id="sync">
+        <div>
+          <span style="background: rgba(16, 185, 129, 0.25); color: #A7F3D0; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; letter-spacing: 1px;">THE KILLER FEATURE</span>
+          <h3 style="font-family: var(--font-display); font-size: 32px; font-weight: 800; margin: 16px 0 12px; line-height: 1.2;">
+            1-Click Payroll Sync to General Ledger
+          </h3>
+          <p style="font-size: 15px; color: #D1D5DB; line-height: 1.6; margin-bottom: 24px;">
+            Say goodbye to exporting payroll spreadsheets and manually typing debit/credit journal entries into your accounting software. 
+            When you finalize a pay run in StraitsHR, click one button: wage expenses, CPF liabilities, and net pay automatically post to StraitsLedger.
+          </p>
+          <a href="#pricing" class="btn-secondary" style="background: #FFFFFF; color: var(--brand-forest); border: none;">Start Free Trial</a>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 24px;">
+          <h4 style="font-size: 14px; font-weight: 700; color: #A7F3D0; margin-bottom: 12px;">Automated Ledger Entry Generated:</h4>
+          <div style="font-family: monospace; font-size: 12px; color: #F3F4F6; line-height: 1.8;">
+            <div><span style="color: #6EE7B7;">DEBIT</span> : 6000 Gross Salary Expense ...... S$ 74,200.00</div>
+            <div><span style="color: #6EE7B7;">DEBIT</span> : 6010 Employer CPF Expense ....... S$ 12,614.00</div>
+            <div><span style="color: #F87171;">CREDIT</span>: 2100 CPF Board Payable ......... S$ 24,850.00</div>
+            <div><span style="color: #F87171;">CREDIT</span>: 1010 Corporate Bank Account .... S$ 59,350.00</div>
+          </div>
+          <div style="margin-top: 14px; padding-top: 12px; border-top: 1px dashed rgba(255, 255, 255, 0.2); font-size: 11px; color: #9CA3AF;">
+            ⚡ Verified balanced entry: Zero manual reconciliation needed.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="content-section" id="pricing" style="background: #FFFFFF; border-top: 1px solid var(--border-line); border-bottom: 1px solid var(--border-line);">
+      <div class="section-header">
+        <div class="section-eyebrow">Transparent Singapore Pricing</div>
+        <h2 class="section-heading">Predictable Flat-Rate Pricing in SGD</h2>
+        <p class="section-subheading">
+          No hidden implementation fees. Cancel anytime. All plans include automated statutory updates.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- PLAN 1 -->
+        <div class="price-card">
+          <div>
+            <h3 style="font-size: 20px; font-weight: 700; color: var(--brand-forest);">Micro SME</h3>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">For small startups and single-director firms.</p>
+            <div class="price-amount tabular-num">S$ 39<span class="price-period"> / month</span></div>
+            <ul class="feature-list" style="margin-top: 24px;">
+              <li><span class="check-icon">✓</span> Up to 5 employees in StraitsHR</li>
+              <li><span class="check-icon">✓</span> Full StraitsLedger accounting</li>
+              <li><span class="check-icon">✓</span> PayNow SG QR on invoices</li>
+              <li><span class="check-icon">✓</span> 9% GST tracking &amp; Form 5</li>
+            </ul>
+          </div>
+          <a href="#" class="btn-secondary" style="text-align: center;">Get Started</a>
+        </div>
+
+        <!-- PLAN 2 (FEATURED) -->
+        <div class="price-card featured">
+          <div class="popular-tag">MOST POPULAR FOR SMES</div>
+          <div>
+            <h3 style="font-size: 20px; font-weight: 700; color: var(--brand-forest);">Growth Suite</h3>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">The complete operating system for growing teams.</p>
+            <div class="price-amount tabular-num">S$ 89<span class="price-period"> / month</span></div>
+            <ul class="feature-list" style="margin-top: 24px;">
+              <li><span class="check-icon">✓</span> Up to 25 employees in StraitsHR</li>
+              <li><span class="check-icon">✓</span> Full StraitsLedger accounting</li>
+              <li><span class="check-icon">✓</span> <strong>1-Click Payroll Sync</strong> enabled</li>
+              <li><span class="check-icon">✓</span> Bank GIRO &amp; CPF EZPay exports</li>
+              <li><span class="check-icon">✓</span> Custom branding on payslips &amp; invoices</li>
+            </ul>
+          </div>
+          <a href="#" class="btn-primary" style="text-align: center; justify-content: center;">Start 14-Day Free Trial</a>
+        </div>
+
+        <!-- PLAN 3 -->
+        <div class="price-card">
+          <div>
+            <h3 style="font-size: 20px; font-weight: 700; color: var(--brand-forest);">Accounting Practice</h3>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">For corporate secretarial and bookkeeping firms.</p>
+            <div class="price-amount tabular-num">S$ 199<span class="price-period"> / month</span></div>
+            <ul class="feature-list" style="margin-top: 24px;">
+              <li><span class="check-icon">✓</span> Multi-entity portal (manage 15+ UENs)</li>
+              <li><span class="check-icon">✓</span> Unlimited client payroll runs</li>
+              <li><span class="check-icon">✓</span> Bulk IRAS filing assistant</li>
+              <li><span class="check-icon">✓</span> Dedicated account manager &amp; phone SLA</li>
+            </ul>
+          </div>
+          <a href="#" class="btn-secondary" style="text-align: center;">Contact Sales</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div style="max-width: 320px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+          <svg width="28" height="28" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="60,6 106,33 106,87 60,114 14,87 14,33" fill="#0A3B32"/>
+            <polygon points="60,6 106,33 106,87 60,114 60,60" fill="#10B981" fill-opacity="0.85"/>
+            <polygon points="60,114 106,87 60,60" fill="#E8E5DF" fill-opacity="0.4"/>
+            <polygon points="60,114 14,87 60,60" fill="#062620" fill-opacity="0.6"/>
+            <polygon points="60,20 94,40 94,80 60,100 26,80 26,40" fill="#FFFFFF" stroke="#E8E5DF" stroke-width="1.5"/>
+            <path d="M 42 42 L 72 42 L 72 50 L 52 50 L 52 58 L 78 58 L 78 78 L 42 78 L 42 70 L 68 70 L 68 64 L 42 64 Z" fill="#0A3B32"/>
+          </svg>
+          <strong style="font-family: var(--font-display); font-size: 18px; color: var(--brand-forest); letter-spacing: -0.3px;">STRAITS</strong>
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+          Singapore’s unified cloud accounting, tax, and workforce payroll software. Built strictly for local statutory compliance.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://ledger.thethinkthank.com">StraitsLedger (Accounting)</a></li>
+          <li><a href="https://hr.thethinkthank.com">StraitsHR (Payroll)</a></li>
+          <li><a href="#sync">1-Click Sync Engine</a></li>
+          <li><a href="#pricing">Pricing &amp; Bundles</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Singapore Statutory</h5>
+        <ul>
+          <li><a href="#">IRAS 9% GST Guide</a></li>
+          <li><a href="#">CPF 2026 Contribution Tables</a></li>
+          <li><a href="#">MOM Employment Act Compliance</a></li>
+          <li><a href="#">PayNow SG QR Standards</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Security &amp; Trust</h5>
+        <ul>
+          <li><a href="#">AES-256 Encryption</a></li>
+          <li><a href="#">Isolated D1 Database Vaults</a></li>
+          <li><a href="#">Singapore PDPA Compliance</a></li>
+          <li><a href="#">System Status</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Straits Technologies Pte. Ltd. All rights reserved. Registered in Singapore.</div>
+      <div style="display: flex; gap: 20px;">
+        <a href="#" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+        <a href="#" style="color: var(--text-muted); text-decoration: none;">Terms of Service</a>
+        <a href="#" style="color: var(--text-muted); text-decoration: none;">Security Whitepaper</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
