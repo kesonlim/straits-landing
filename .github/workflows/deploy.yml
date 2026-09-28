@@ -13,8 +13,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy to Cloudflare
-        uses: cloudflare/wrangler-action@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || 'b859ce3142b762662f0f2cc5d55a4f15' }}
+          node-version: '20'
+
+      - name: Install Wrangler
+        run: npm install -g wrangler@4
+
+      - name: Deploy to Cloudflare Workers (Static Assets)
+        if: github.event_name == 'push'
+        run: wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 'b859ce3142b762662f0f2cc5d55a4f15'
